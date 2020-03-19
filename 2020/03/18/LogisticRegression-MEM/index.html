@@ -196,7 +196,7 @@
                         
 
 
-<a href="/xiashurang.com/tags/“MachineLearning”/">#“MachineLearning”</a> <a href="/xiashurang.com/tags/“Classification”/">#“Classification”</a>
+<a href="/xiashurang.com/tags/MachineLearning/">#MachineLearning</a> <a href="/xiashurang.com/tags/Classification/">#Classification</a>
 
 
                     
@@ -289,8 +289,10 @@ f(\lambda) = \sum_{i=1}^m\log (\pi(x(i))_{y(i)}) \tag{3.4}
 \begin{aligned}
 \frac{\partial}{\partial\lambda_{u,j}} f(\lambda) &amp;= \frac{\partial}{\partial\lambda_{u,j}} \sum_{i=1}^m\log (\pi(x(i))_{y(i)})\\
 &amp;= \sum_{i=1}^m \frac{1}{\pi(x(i))_{y(i)}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{y(i)}\\
-&amp;= \sum_{i=1,y(i)=u}^m \frac{1}{\pi(x(i))_{u}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{u} + \sum_{i=1,y(i)\neq u}^m \frac{1}{\pi(x(i))_{y(i)}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{y(i)}\\
-&amp;= \sum_{i=1,y(i)=u}^m \frac{1}{\pi(x(i))_{u}} x(i)_j\pi(x(i))_u(1-\pi(x(i))_u) - \sum_{i=1,y(i)\neq u}^m \frac{1}{\pi(x(i))_{y(i)}} x(i)_j\pi(x(i))_{y(i)}\pi(x(i))_u\\
+&amp;= \sum_{i=1,y(i)=u}^m \frac{1}{\pi(x(i))_{u}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{u} \\
+&amp;\qquad+ \sum_{i=1,y(i)\neq u}^m \frac{1}{\pi(x(i))_{y(i)}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{y(i)}\\
+&amp;= \sum_{i=1,y(i)=u}^m \frac{1}{\pi(x(i))_{u}} x(i)_j\pi(x(i))_u(1-\pi(x(i))_u) \\
+&amp;\qquad- \sum_{i=1,y(i)\neq u}^m \frac{1}{\pi(x(i))_{y(i)}} x(i)_j\pi(x(i))_{y(i)}\pi(x(i))_u\\
 &amp;=\sum_{i=1,y(i)=u}^m x(i)_j(1-\pi(x(i))_u) - \sum_{i=1,y(i)\neq u}^m x(i)_j\pi(x(i))_u\\
 &amp;=\sum_{i=1,y(i)=u}^m x(i)_j - \sum_{i=1}^m x(i)_j\pi(x(i))_u
 \end{aligned}
