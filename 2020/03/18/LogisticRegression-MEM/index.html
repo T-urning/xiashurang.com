@@ -13,7 +13,8 @@
     
 
     
-        <meta name="description" content="前言逻辑斯谛回归（logistic regression，LR）是机器学习中的经典分类方法，可用于二类或多类分类；最大熵原理是概率学习或估计的一个准则，最大熵原理认为在所有可能的概率模型的集合中，熵最大的模型是最好的模型。将其推广到分类问题得到最大熵模型（maximun entropy model，"/>
+        <meta name="description" content="前言
+逻辑斯谛回归（logistic regression，LR）是机器学习中的经典分类方法，可用于二类或多类分类；最大熵原理是概率学习或估计的一个准则，最大熵原理认为在所有可能的概率模型的集合中，熵最大的模型是最好的模型。将其推广到分类问题得到最大熵模型（maximun entropy mode"/>
     
 
     <!--Author-->
@@ -28,7 +29,8 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="前言逻辑斯谛回归（logistic regression，LR）是机器学习中的经典分类方法，可用于二类或多类分类；最大熵原理是概率学习或估计的一个准则，最大熵原理认为在所有可能的概率模型的集合中，熵最大的模型是最好的模型。将其推广到分类问题得到最大熵模型（maximun entropy model，"/>
+        <meta property="og:description" content="前言
+逻辑斯谛回归（logistic regression，LR）是机器学习中的经典分类方法，可用于二类或多类分类；最大熵原理是概率学习或估计的一个准则，最大熵原理认为在所有可能的概率模型的集合中，熵最大的模型是最好的模型。将其推广到分类问题得到最大熵模型（maximun entropy mode"/>
     
 
     <!--Open Graph Site Name-->
@@ -162,7 +164,7 @@
     <!-- Page Header -->
 <!-- Set your background image for this header in your post front-matter: cover -->
 
-<header class="intro-header" style="background-image: url('/assets/cover.jpg')">
+<header class="intro-header" style="background-image: url('source/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -171,8 +173,6 @@
                     
                     <span class="meta">
                         <!-- Date and Author -->
-                        
-                            Posted by Xiashurang on
                         
                         
                             2020-03-18
@@ -196,7 +196,7 @@
                         
 
 
-<a href="/xiashurang.com/tags/MachineLearning/">#MachineLearning</a> <a href="/xiashurang.com/tags/Classification/">#Classification</a>
+<a href="/xiashurang.com/tags/“MachineLearning”/">#“MachineLearning”</a> <a href="/xiashurang.com/tags/“Classification”/">#“Classification”</a>
 
 
                     
@@ -211,127 +211,136 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>逻辑斯谛回归</strong>（logistic regression，LR）是机器学习中的经典分类方法，可用于二类或多类分类；最大熵原理是概率学习或估计的一个准则，最大熵原理认为在所有可能的概率模型的集合中，熵最大的模型是最好的模型。将其推广到分类问题得到<strong>最大熵模型</strong>（maximun entropy model，MEM）。</p>
+                <h2 id="前言">前言</h2>
+<p><strong>逻辑斯谛回归</strong>（logistic regression，LR）是机器学习中的经典分类方法，可用于二类或多类分类；最大熵原理是概率学习或估计的一个准则，最大熵原理认为在所有可能的概率模型的集合中，熵最大的模型是最好的模型。将其推广到分类问题得到<strong>最大熵模型</strong>（maximun entropy model，MEM）。</p>
 <p>本文先分别介绍逻辑斯谛回归和最大熵模型，最后证明逻辑斯谛回归是最大熵模型的一种特殊情况。</p>
-<h3 id="符号约定"><a href="#符号约定" class="headerlink" title="符号约定"></a>符号约定</h3><ul>
-<li><script type="math/tex">x(i)</script> : 代表第 <script type="math/tex">i</script> 个样本输入，<script type="math/tex">x(i) \in \mathbb{R}^n,  i=0,1,2,\dots,m</script>。</li>
-<li><script type="math/tex">x(i)_j</script> : 代表第 <script type="math/tex">i</script> 个样本的第 <script type="math/tex">j</script>个元素，<script type="math/tex">j=0,1,2,\dots,n</script>。</li>
-<li><script type="math/tex">y(i)</script> : 代表第 <script type="math/tex">i</script> 个样本对应的真实类别。</li>
-<li><script type="math/tex">\pi()</script> : 需要求得的概率分布函数，<script type="math/tex">\pi(x)_u</script> 表示该函数将样本 <script type="math/tex">x</script> 划分为 <script type="math/tex">u</script>类的概率。</li>
-<li><script type="math/tex">A(u,v)</script> : 指示函数， 若 <script type="math/tex">u=v</script> ，则等于 1，否则为零。</li>
+<h3 id="符号约定">符号约定</h3>
+<ul>
+<li><span class="math inline">\(x(i)\)</span> : 代表第 <span class="math inline">\(i\)</span> 个样本输入，<span class="math inline">\(x(i) \in \mathbb{R}^n, i=0,1,2,\dots,m\)</span>。</li>
+<li><span class="math inline">\(x(i)_j\)</span> : 代表第 <span class="math inline">\(i\)</span> 个样本的第 <span class="math inline">\(j\)</span> 个元素，<span class="math inline">\(j=0,1,2,\dots,n\)</span>。</li>
+<li><span class="math inline">\(y(i)\)</span> : 代表第 <span class="math inline">\(i\)</span> 个样本对应的真实类别。</li>
+<li><span class="math inline">\(\pi()\)</span> : 需要求得的概率分布函数，<span class="math inline">\(\pi(x)_u\)</span> 表示该函数将样本 <span class="math inline">\(x\)</span> 划分为 <span class="math inline">\(u\)</span> 类的概率。</li>
+<li><span class="math inline">\(A(u,v)\)</span> : 指示函数， 若 <span class="math inline">\(u=v\)</span> ，则等于 1，否则为零。</li>
 </ul>
-<h2 id="逻辑斯谛回归"><a href="#逻辑斯谛回归" class="headerlink" title="逻辑斯谛回归"></a>逻辑斯谛回归</h2><p>对于二分类，逻辑斯谛回归模型可以表示为：</p>
-<script type="math/tex; mode=display">
+<h2 id="逻辑斯谛回归">逻辑斯谛回归</h2>
+<p>对于二分类，逻辑斯谛回归模型可以表示为： <span class="math display">\[
 \begin{eqnarray*}
 \pi(x)_1  = \frac{e^{\lambda x}}{e^{\lambda x} + 1} \tag{1.1} \\ 
 \pi(x)_2  = \frac{1}{e^{\lambda x} + 1} \tag{1.2}
-\end{eqnarray*}</script><p>其中，<script type="math/tex">\lambda \in \mathbb{R}^n</script>，为模型参数。从上面公式可以看出，<script type="math/tex">\pi(x)_1 \in (0,1)</script> ，<script type="math/tex">\pi(x)_2 = 1 -\pi(x)_1</script>，而且该模型完全是由<script type="math/tex">\lambda</script>参数决定的。<script type="math/tex">\pi(x)_1</script>是 <strong>sigmoid 函数</strong>（代表一类函数，其函数图形为 <script type="math/tex">S</script> 形曲线，在无特意指明的情况下一般默认为公式 <script type="math/tex">(1.1)</script> 在 <script type="math/tex">\lambda = 1</script> 时的情况）。</p>
-<h3 id="几率与逻辑斯谛回归"><a href="#几率与逻辑斯谛回归" class="headerlink" title="几率与逻辑斯谛回归"></a>几率与逻辑斯谛回归</h3><p><a href="https://zh.wikipedia.org/wiki/%E5%8F%91%E7%94%9F%E6%AF%94" target="_blank" rel="noopener"><strong>几率</strong></a>（odds）表示某件事发生的概率（记作 <script type="math/tex">p</script>）与该事件不发生的概率的比值：<script type="math/tex">\frac{p}{1-p}</script>，该事件的<strong>对数几率</strong>（log odds）或 <strong>logit 函数</strong>为：</p>
-<script type="math/tex; mode=display">
-logit(p) = \log\frac{p}{1-p} \tag{1.3}</script><p>可看出 logit 函数可将 0 至 1 之间的值（概率）映射到整个实数域 <script type="math/tex">(-\infin,+\infin)</script> 。而 sigmoid 函数可将整个实数域的值映射到 0 至 1 之间：</p>
-<script type="math/tex; mode=display">
-sigmoid(x) = \frac{e^x}{e^x+1} \tag{1.4}</script><p>将 sigmoid 函数作为输入带入到 logit 函数中时，可发现这两个函数互为<strong>反函数</strong>。</p>
-<script type="math/tex; mode=display">
+\end{eqnarray*}
+\]</span> 其中，<span class="math inline">\(\lambda \in \mathbb{R}^n\)</span>，为模型参数。从上面公式可以看出，<span class="math inline">\(\pi(x)_1 \in (0,1)\)</span> ， <span class="math inline">\(\pi(x)_2 = 1 -\pi(x)_1\)</span> ，而且该模型完全是由 <span class="math inline">\(\lambda\)</span> 参数决定的。$(x)_1 $ 是 <strong>sigmoid 函数</strong>（代表一类函数，其函数图形为 <span class="math inline">\(S\)</span> 形曲线，在无特意指明的情况下一般默认为公式 <span class="math inline">\((1.1)\)</span> 在 <span class="math inline">\(\lambda = 1\)</span> 时的情况）。</p>
+<h3 id="几率与逻辑斯谛回归">几率与逻辑斯谛回归</h3>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%8F%91%E7%94%9F%E6%AF%94" target="_blank" rel="noopener"><strong>几率</strong></a>（odds）表示某件事发生的概率（记作 <span class="math inline">\(p\)</span>）与该事件不发生的概率的比值：<span class="math inline">\(\frac{p}{1-p}\)</span>，该事件的<strong>对数几率</strong>（log odds）或 <strong>logit 函数</strong>为： <span class="math display">\[
+logit(p) = \log\frac{p}{1-p} \tag{1.3}
+\]</span> 可看出 logit 函数可将 0 至 1 之间的值（概率）映射到整个实数域<span class="math inline">\((-\infin,+\infin)\)</span>。而 sigmoid 函数可将整个实数域的值映射到 0 至 1 之间： <span class="math display">\[
+sigmoid(x) = \frac{e^x}{e^x+1} \tag{1.4}
+\]</span> 将 sigmoid 函数作为输入带入到 logit 函数中时，可发现这两个函数互为<strong>反函数</strong>。 <span class="math display">\[
 \begin{aligned}
-logit(sigmoid(x)) &= \log\frac{e^x/(e^x+1)}{1/(e^x+1)} \\
-&=x
+logit(sigmoid(x)) &amp;= \log\frac{e^x/(e^x+1)}{1/(e^x+1)} \\
+&amp;=x
 \end{aligned}
-\tag{1.5}</script><p>将逻辑斯谛回归的 <script type="math/tex">(1.1)</script> 公式带入到 logit 函数中，有：</p>
-<script type="math/tex; mode=display">
-logit(\pi(x)_1) = \lambda \cdot x \tag{1.6}</script><p>所以说，在逻辑斯谛回归模型中，<strong>输出类别为 1 的对数几率是输入 <script type="math/tex">x</script> 的线性函数</strong>。线性函数值越接近正无穷，判断为类别 1 的概率越大，值越接近负无穷，则概率越低。这也是逻辑斯谛回归模型如此命名的原因。</p>
-<h3 id="推广至多类分类"><a href="#推广至多类分类" class="headerlink" title="推广至多类分类"></a>推广至多类分类</h3><p>将逻辑斯谛回归推广至多类（k类）分类，可表示为：</p>
-<script type="math/tex; mode=display">
-\pi(x)_v  = \frac{e^{\lambda_v x}}{\sum_{u=1}^{k} e^{\lambda_u x}} \tag{1.7}</script><p>在这里，<script type="math/tex">\lambda</script> 是一个 <script type="math/tex">k \times n</script> 的矩阵，一行对应一种类别的参数。如果令 <script type="math/tex">k=2</script>，且 <script type="math/tex">\lambda _2</script> 为一个零向量，就可得到之前所讲的二分类逻辑斯谛回归。</p>
-<p>此时 <script type="math/tex">\pi()</script> 应满足：</p>
+\tag{1.5}
+\]</span> 将逻辑斯谛回归的 <span class="math inline">\((1.1)\)</span> 公式带入到 logit 函数中，有： <span class="math display">\[
+logit(\pi(x)_1) = \lambda \cdot x \tag{1.6}
+\]</span> 所以说，在逻辑斯谛回归模型中，<strong>输出类别为 1 的对数几率是输入 <span class="math inline">\(x\)</span> 的线性函数</strong>。线性函数值越接近正无穷，判断为类别 1 的概率越大，值越接近负无穷，则概率越低。这也是逻辑斯谛回归模型如此命名的原因。</p>
+<h3 id="推广至多类分类">推广至多类分类</h3>
+<p>将逻辑斯谛回归推广至多类（k类）分类，可表示为： <span class="math display">\[
+\pi(x)_v  = \frac{e^{\lambda_v x}}{\sum_{u=1}^{k} e^{\lambda_u x}} \tag{1.7}
+\]</span> 在这里，<span class="math inline">\(\lambda\)</span> 是一个 <span class="math inline">\(k \times n\)</span> 的矩阵，一行对应一种类别的参数。如果令 <span class="math inline">\(k=2\)</span>，且 <span class="math inline">\(\lambda _2\)</span> 为一个零向量，就可得到之前所讲的二分类逻辑斯谛回归。</p>
+<p>此时 <span class="math inline">\(\pi()\)</span> 应满足：</p>
 <ul>
-<li><script type="math/tex">\pi(x)_v \ge 0</script>.</li>
-<li><script type="math/tex">\sum_v^k \pi(x)_v = 1</script>.</li>
-<li><strong><script type="math/tex">\pi(x(i))_{y(i)}</script> 尽可能大</strong></li>
+<li><span class="math inline">\(\pi(x)_v \ge 0\)</span></li>
+<li><span class="math inline">\(\sum_v^k \pi(x)_v = 1\)</span></li>
+<li><strong><span class="math inline">\(\pi(x(i))_{y(i)}\)</span> 尽可能大</strong>。</li>
 </ul>
-<p>前面两点不特别需要关注，因为这是公式 <script type="math/tex">(1.7)</script> 本身具有的特性，无关 <script type="math/tex">\lambda</script> 的取值。第三点是逻辑斯谛回归的核心目标，需要找到合适的 <script type="math/tex">\lambda</script> 来实现。</p>
-<h2 id="最大熵模型"><a href="#最大熵模型" class="headerlink" title="最大熵模型"></a>最大熵模型</h2><p>前言中有说到，最大熵原理是概率学习或估计的一个准则，最大熵原理认为在所有可能的概率模型的集合中，熵最大的模型是最好的模型。将其推广到分类问题得到<strong>最大熵模型</strong>（maximum entropy models）。</p>
-<p>在信息论里，<a href="https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA" target="_blank" rel="noopener"><strong>熵</strong></a>)（entropy）是对不确定性的测量，熵越高则不确定性越高。假设离散随机变量 <script type="math/tex">X</script> 的概率分布为 <script type="math/tex">P(X)</script>，则其熵为：</p>
-<script type="math/tex; mode=display">
-H(P) = -\sum_x P(x)\log P(x) \tag{2.1}</script><p><strong>假设满足所有约束条件的模型集合为 <script type="math/tex">P</script>， 最大熵原理建议选取 <script type="math/tex">P</script> 中熵最大的模型</strong>。使用 <script type="math/tex">E_p=E_{\hat{p}}</script> 泛指模型所需满足的约束条件，最大熵模型 <script type="math/tex">p^*</script> 可定义为：</p>
-<script type="math/tex; mode=display">
+<p>前面两点不特别需要关注，因为这是公式 <span class="math inline">\((1.7)\)</span> 本身具有的特性，无关 <span class="math inline">\(\lambda\)</span> 的取值。第三点是逻辑斯谛回归的核心目标，需要找到合适的 <span class="math inline">\(\lambda\)</span> 来实现。</p>
+<h2 id="最大熵模型">最大熵模型</h2>
+<p>前言中有说到，最大熵原理是概率学习或估计的一个准则，最大熵原理认为在所有可能的概率模型的集合中，熵最大的模型是最好的模型。将其推广到分类问题得到<strong>最大熵模型</strong>（maximum entropy models）。</p>
+<p>在信息论里，<a href="https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA)" target="_blank" rel="noopener"><strong>熵</strong></a>（entropy）是对不确定性的测量，熵越高则不确定性越高。假设离散随机变量 <span class="math inline">\(X\)</span> 的概率分布为 <span class="math inline">\(P(X)\)</span>，则其熵为： <span class="math display">\[
+H(P) = -\sum_x P(x)\log P(x) \tag{2.1}
+\]</span> <strong>假设满足所有约束条件的模型集合为 <span class="math inline">\(P\)</span>， 最大熵原理建议选取 <span class="math inline">\(P\)</span> 中熵最大的模型</strong>。使用 <span class="math inline">\(E_p=E_{\hat{p}}\)</span> 泛指模型所需满足的约束条件，最大熵模型 <span class="math inline">\(p^*\)</span> 可定义为： <span class="math display">\[
 \begin{aligned}
-P &= \{p|E_p=E_{\hat{p}}\} \\
+P &amp;= \{p|E_p=E_{\hat{p}}\} \\
 \\
-p^* &= \arg \max_{p \in P} H(p)
+p^* &amp;= \arg \max_{p \in P} H(p)
 \end{aligned}
-\tag{2.2}</script><p>不知道读者们是否有困惑（我刚接触的时候就有）：对于分类问题，模型不是在训练数据上的分类确定性越高（熵越低）越好吗？为什么最大熵原理却推荐选择满足限制条件的熵最大的模型？</p>
+\tag{2.2}
+\]</span></p>
+<p>不知道读者们是否有困惑（我刚接触的时候就有）：对于分类问题，模型不是在训练数据上的分类确定性越高（熵越低）越好吗？为什么最大熵原理却推荐选择满足限制条件的熵最大的模型？</p>
 <p>其实，这么做主要是为了避免选择在训练数据上<strong>过拟合</strong>（over-fitting）的模型。我们都知道，在训练数据上过拟合的模型，在遇到未见过的新数据时<strong>泛化能力</strong>较差，而模型的泛化能力是我们最关心的一点。</p>
 <p>直观地，最大熵原理认为要选择的概率模型首先必须满足已有的事实，即约束条件。在没有更多的信息的情况下，那些不确定的部分都是“等可能的”。</p>
-<h2 id="逻辑斯谛回归是最大熵模型的一个特例"><a href="#逻辑斯谛回归是最大熵模型的一个特例" class="headerlink" title="逻辑斯谛回归是最大熵模型的一个特例"></a>逻辑斯谛回归是最大熵模型的一个特例</h2><p>接下来证明逻辑斯谛回归是最大熵模型的一个特例。先回顾一下逻辑斯谛回归在多类问题上的公式：</p>
-<script type="math/tex; mode=display">
-\pi(x)_v  = \frac{e^{\lambda_v x}}{\sum_{u=1}^{k} e^{\lambda_u x}} \tag{3.1}</script><p>根据公式 <script type="math/tex">(3.1)</script> 可以求得该函数对参数 <script type="math/tex">\lambda</script> 的偏导数：</p>
-<script type="math/tex; mode=display">
+<h2 id="逻辑斯谛回归是最大熵模型的一个特例">逻辑斯谛回归是最大熵模型的一个特例</h2>
+<p>接下来证明逻辑斯谛回归是最大熵模型的一个特例。先回顾一下逻辑斯谛回归在多类问题上的公式： <span class="math display">\[
+\pi(x)_v  = \frac{e^{\lambda_v x}}{\sum_{u=1}^{k} e^{\lambda_u x}} \tag{3.1}
+\]</span> 根据公式 <span class="math inline">\((3.1)\)</span> 可以求得该函数对参数 <span class="math inline">\(\lambda\)</span> 的偏导数： $$ \begin{aligned}  &amp;= =x_j(x)_v(1-(x)_v) \ \  &amp;= =-x_j(x)_v(x)_u (u v)</p>
+<p>\end{aligned}  $$</p>
+<h3 id="导出逻辑斯谛回归中对模型的限制条件">导出逻辑斯谛回归中对模型的限制条件</h3>
+<p>第一节有说过，对于多类问题上的逻辑斯谛回归，我们希望 <span class="math inline">\(\pi(x(i))_{y(i)}\)</span> 在所有训练样本上都<strong>尽可能大</strong>，即让如下式子尽可能大： <span class="math display">\[
+\prod_{i=1}^m \pi(x(i))_{y(i)} \tag{3.3}
+\]</span> 等价于最大化如下的对数似然： <span class="math display">\[
+f(\lambda) = \sum_{i=1}^m\log (\pi(x(i))_{y(i)}) \tag{3.4}
+\]</span> 所以，<strong>我们需要找到一个 <span class="math inline">\(\lambda\)</span> ，使得 <span class="math inline">\(f(\lambda)\)</span> 最大</strong>，故计算 <span class="math inline">\(f(\lambda)\)</span> 对 <span class="math inline">\(\lambda\)</span> 的偏导数，并令其等于零。 <span class="math display">\[
 \begin{aligned}
-\frac{\partial \pi(x)_v}{\partial\lambda_{v,j}} &= \frac{\partial \pi(x)_v}{\partial e^{\lambda_v x}}\frac{\partial e^{\lambda_v x}}{\partial\lambda_{v,j}}=x_j\pi(x)_v(1-\pi(x)_v) \\
-\\
-\frac{\partial \pi(x)_v}{\partial\lambda_{u,j}} &= \frac{\partial \pi(x)_v}{\partial e^{\lambda_u x}}\frac{\partial e^{\lambda_u x}}{\partial\lambda_{u,j}}=-x_j\pi(x)_v\pi(x)_u \quad (\text{when }u \neq v)
-
+\frac{\partial}{\partial\lambda_{u,j}} f(\lambda) &amp;= \frac{\partial}{\partial\lambda_{u,j}} \sum_{i=1}^m\log (\pi(x(i))_{y(i)})\\
+&amp;= \sum_{i=1}^m \frac{1}{\pi(x(i))_{y(i)}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{y(i)}\\
+&amp;= \sum_{i=1,y(i)=u}^m \frac{1}{\pi(x(i))_{u}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{u} + \sum_{i=1,y(i)\neq u}^m \frac{1}{\pi(x(i))_{y(i)}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{y(i)}\\
+&amp;= \sum_{i=1,y(i)=u}^m \frac{1}{\pi(x(i))_{u}} x(i)_j\pi(x(i))_u(1-\pi(x(i))_u) - \sum_{i=1,y(i)\neq u}^m \frac{1}{\pi(x(i))_{y(i)}} x(i)_j\pi(x(i))_{y(i)}\pi(x(i))_u\\
+&amp;=\sum_{i=1,y(i)=u}^m x(i)_j(1-\pi(x(i))_u) - \sum_{i=1,y(i)\neq u}^m x(i)_j\pi(x(i))_u\\
+&amp;=\sum_{i=1,y(i)=u}^m x(i)_j - \sum_{i=1}^m x(i)_j\pi(x(i))_u
 \end{aligned}
-\tag{3.2}</script><h3 id="导出逻辑斯谛回归中对模型的限制条件"><a href="#导出逻辑斯谛回归中对模型的限制条件" class="headerlink" title="导出逻辑斯谛回归中对模型的限制条件"></a>导出逻辑斯谛回归中对模型的限制条件</h3><p>第一节有说过，对于多类问题上的逻辑斯谛回归，我们希望 <script type="math/tex">\pi(x(i))_{y(i)}</script> 在所有训练样本上都<strong>尽可能大</strong>，即让如下式子尽可能大：</p>
-<script type="math/tex; mode=display">
-\prod_{i=1}^m \pi(x(i))_{y(i)} \tag{3.3}</script><p>等价于最大化如下的对数似然：</p>
-<script type="math/tex; mode=display">
-f(\lambda) = \sum_{i=1}^m\log (\pi(x(i))_{y(i)}) \tag{3.4}</script><p>所以，<strong>我们需要找到一个 <script type="math/tex">\lambda</script> ，使得 <script type="math/tex">f(\lambda)</script> 最大</strong>，故计算  <script type="math/tex">f(\lambda)</script> 对 <script type="math/tex">\lambda</script> 的偏导数，并令其等于零。</p>
-<script type="math/tex; mode=display">
+\tag{3.5}
+\]</span></p>
+<p>令该偏导数为零，得： <span class="math display">\[
 \begin{aligned}
-\frac{\partial}{\partial\lambda_{u,j}} f(\lambda) &= \frac{\partial}{\partial\lambda_{u,j}} \sum_{i=1}^m\log (\pi(x(i))_{y(i)})\\
-&= \sum_{i=1}^m \frac{1}{\pi(x(i))_{y(i)}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{y(i)}\\
-&= \sum_{i=1,y(i)=u}^m \frac{1}{\pi(x(i))_{u}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{u} + \sum_{i=1,y(i)\neq u}^m \frac{1}{\pi(x(i))_{y(i)}} \frac{\partial}{\partial\lambda_{u,j}}\pi(x(i))_{y(i)}\\
-&= \sum_{i=1,y(i)=u}^m \frac{1}{\pi(x(i))_{u}} x(i)_j\pi(x(i))_u(1-\pi(x(i))_u) - \sum_{i=1,y(i)\neq u}^m \frac{1}{\pi(x(i))_{y(i)}} x(i)_j\pi(x(i))_{y(i)}\pi(x(i))_u\\
-&=\sum_{i=1,y(i)=u}^m x(i)_j(1-\pi(x(i))_u) - \sum_{i=1,y(i)\neq u}^m x(i)_j\pi(x(i))_u\\
-&=\sum_{i=1,y(i)=u}^m x(i)_j - \sum_{i=1}^m x(i)_j\pi(x(i))_u
+\sum_{i=1}^m \pi(x(i))_u x(i)_j &amp;= \sum_{i=1,y(i)=u}^m x(i)_j  \quad(\text{for all }u,j)\\
+&amp;=\sum_{i=1}^m A(u,y(i))x(i)_j  \quad(\text{for all }u,j)
 \end{aligned}
-\tag{3.5}</script><p>令该偏导数为零，得（<script type="math/tex">A</script> 为指示函数）：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\sum_{i=1}^m \pi(x(i))_u x(i)_j &= \sum_{i=1,y(i)=u}^m x(i)_j  \quad(\text{for all }u,j)\\
-&=\sum_{i=1}^m A(u,y(i))x(i)_j  \quad(\text{for all }u,j)
-\end{aligned}
-\tag{3.6}</script><p>上面的公式隐含如下信息：<strong>在训练样本中，类别为 u 的所有样本的第 <script type="math/tex">j</script> 值个元素的总和等于模型 <script type="math/tex">\pi(x(i))_u</script> 在所有训练样本（无关类别）的第 <script type="math/tex">j</script> 个元素上的概率质量（probability mass）之和</strong>。而且，还说明，<strong>最优的 <script type="math/tex">\lambda</script> 应使概率函数  <script type="math/tex">\pi(x(i))_u</script> 的执行效果尽可能地接近指示函数 <script type="math/tex">A(u,y(i))</script></strong>。</p>
-<p>通过以上的推导，我们可以把逻辑斯谛回归中 <script type="math/tex">\pi()</script> 应满足的<strong>条件</strong>重新写一下：</p>
+\tag{3.6}
+\]</span> <span class="math inline">\(A\)</span> 为指示函数，上面的公式隐含如下信息：<strong>在训练样本中，类别为 u 的所有样本的第 <span class="math inline">\(j\)</span> 值个元素的总和等于模型 <span class="math inline">\(\pi(x(i))_u\)</span> 在所有训练样本（无关类别）的第 <span class="math inline">\(j\)</span> 个元素上的概率质量（probability mass）之和</strong>。而且，还说明，<strong>最优的 <span class="math inline">\(\lambda\)</span> 应使概率函数 <span class="math inline">\(\pi(x(i))_u\)</span> 的执行效果尽可能地接近指示函数 <span class="math inline">\(A(u,y(i))\)</span></strong>。</p>
+<p>通过以上的推导，我们可以把逻辑斯谛回归中 <span class="math inline">\(\pi()\)</span> 应满足的<strong>条件</strong>重新写一下：</p>
 <ul>
-<li><script type="math/tex; mode=display">\pi(x)_v \ge 0 \quad \text{always}</script></li>
-<li><script type="math/tex; mode=display">\sum_v^k \pi(x)_v = 1 \quad \text{always}</script></li>
-<li><script type="math/tex; mode=display">\sum_{i=1}^m \pi(x(i))_u x(i)_j=\sum_{i=1}^m A(u,y(i))x(i)_j  \quad(\text{for all }u,j)</script></li>
+<li><span class="math inline">\(\pi(x)_v \ge 0 \quad \text{always}\)</span></li>
+<li><span class="math inline">\(\sum_v^k \pi(x)_v = 1 \quad \text{always}\)</span></li>
+<li><span class="math inline">\(\sum_{i=1}^m \pi(x(i))_u x(i)_j=\sum_{i=1}^m A(u,y(i))x(i)_j \quad(\text{for all }u,j)\)</span></li>
 </ul>
-<h3 id="将限制条件应用到最大熵原理中"><a href="#将限制条件应用到最大熵原理中" class="headerlink" title="将限制条件应用到最大熵原理中"></a>将限制条件应用到最大熵原理中</h3><p>现在，我们可以把上节中 <script type="math/tex">\pi()</script> 应满足的条件加入到最大熵模型的定义中（公式 <script type="math/tex">(2.2)</script>）， 而 <script type="math/tex">\pi()</script> 的熵可写作：</p>
-<script type="math/tex; mode=display">
--\sum_{u=1}^k\sum_{i=1}^m \pi(x(i)_u)\log (\pi(x(i))_u) \tag{3.7}</script><p>对于公式<script type="math/tex">(2.2)</script> 条件极值的求解，可以使用<a href="https://zh.wikipedia.org/wiki/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B0" target="_blank" rel="noopener">拉格朗日乘数法</a>，将目标函数与所有加权的约束条件相加，即：</p>
-<script type="math/tex; mode=display">
+<h3 id="将限制条件应用到最大熵原理中">将限制条件应用到最大熵原理中</h3>
+<p>现在，我们可以把上节中 <span class="math inline">\(\pi()\)</span> 应满足的条件加入到最大熵模型的定义中（公式 <span class="math inline">\((2.2)\)</span>）， 而 <span class="math inline">\(\pi()\)</span> 的熵可写作： <span class="math display">\[
+-\sum_{u=1}^k\sum_{i=1}^m \pi(x(i)_u)\log (\pi(x(i))_u) \tag{3.7}
+\]</span> 对于公式<span class="math inline">\((2.2)\)</span> 条件极值的求解，可以使用<a href="https://zh.wikipedia.org/wiki/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B0" target="_blank" rel="noopener">拉格朗日乘数法</a>，将目标函数与所有加权的约束条件相加，即： <span class="math display">\[
 \begin{aligned}
-L = &\sum_{j=1}^n \sum_{u=1}^k \lambda_{u,j}\left(\sum_{i=1}^m\pi(x(i))_ux(i)_j-A(u,y(i))x(i)_j\right)\\
-&+ \sum_{u=1}^k \sum_{i=1}^{m} \beta_i(\pi(x(i))_u-1)\\
-&- \sum_{u=1}^k \sum_{i=1}^{m} \pi(x(i)_u)\log (\pi(x(i))_u)
+L = &amp;\sum_{j=1}^n \sum_{u=1}^k \lambda_{u,j}\left(\sum_{i=1}^m\pi(x(i))_ux(i)_j-A(u,y(i))x(i)_j\right)\\
+&amp;+ \sum_{u=1}^k \sum_{i=1}^{m} \beta_i(\pi(x(i))_u-1)\\
+&amp;- \sum_{u=1}^k \sum_{i=1}^{m} \pi(x(i)_u)\log (\pi(x(i))_u)
 \end{aligned}
-\tag{3.8}</script><p>上面的 <script type="math/tex">\lambda</script> 和 <script type="math/tex">\beta</script> 是未定权重（参数），<strong><script type="math/tex">\pi()</script> 也是未知的概率函数</strong>。我们的目标是在所有的函数空间中找到一个 <script type="math/tex">\pi()</script> ，以最大化 <script type="math/tex">L</script>，故令 <script type="math/tex">L</script> 对于 <script type="math/tex">\pi(x(i))_u</script> 的偏导数等于零（对于所有的 <script type="math/tex">i,u</script>）。</p>
-<script type="math/tex; mode=display">
+\tag{3.8}
+\]</span> 上面的 <span class="math inline">\(\lambda\)</span> 和 <span class="math inline">\(\beta\)</span> 是未定权重（参数），<strong><span class="math inline">\(\pi()\)</span> 也是未知的概率函数</strong>。我们的目标是在所有的函数空间中找到一个 <span class="math inline">\(\pi()\)</span> ，以最大化 <span class="math inline">\(L\)</span>，故令 <span class="math inline">\(L\)</span> 对于 <span class="math inline">\(\pi(x(i)_u)\)</span> 的偏导数等于零（对于所有的 <span class="math inline">\(i,u\)</span>）。 <span class="math display">\[
 \begin{aligned}
-\frac{\partial}{\partial\pi(x(i))_u} L &= \sum_{j=1}^n \lambda_{u,j}x(i)_j + \beta_i-\log (\pi(x(i))_u) - 1 \\
-&= \lambda_u x(i) + \beta_i-\log (\pi(x(i))_u) - 1 \\
-&= 0
+\frac{\partial}{\partial\pi(x(i))_u} L &amp;= \sum_{j=1}^n \lambda_{u,j}x(i)_j + \beta_i-\log (\pi(x(i))_u) - 1 \\
+&amp;= \lambda_u x(i) + \beta_i-\log (\pi(x(i))_u) - 1 \\
+&amp;= 0
 \end{aligned}
-\tag{3.9}</script><p>将上式简化可得：</p>
-<script type="math/tex; mode=display">
-\pi(x(i))_u = e^{\lambda_u x(i) + \beta_i -1} \tag{3.10}</script><p>又因为 <script type="math/tex">\sum_{u=1}^k \pi(x(i))_u = 1</script> ，则有：</p>
-<script type="math/tex; mode=display">
+\tag{3.9}
+\]</span></p>
+<p>将上式简化可得： <span class="math display">\[
+\pi(x(i))_u = e^{\lambda_u x(i) + \beta_i -1} \tag{3.10}
+\]</span> 又因为 $_{u=1}^k (x(i))_u = 1 $ ，则有： <span class="math display">\[
 \begin{aligned}
-e^{\beta} &= 1/ \sum_{u=1}^k e^{\lambda_u x(i)-1}
+e^{\beta} &amp;= 1/ \sum_{u=1}^k e^{\lambda_u x(i)-1}
 \end{aligned}
-\tag{3.11}</script><p>将 <script type="math/tex">\beta</script> 带入到公式 <script type="math/tex">(3.10)</script> 中，简化可得：</p>
-<script type="math/tex; mode=display">
+\tag{3.11}
+\]</span></p>
+<p>将 <span class="math inline">\(\beta\)</span> 带入到公式 <span class="math inline">\((3.10)\)</span> 中，简化可得： <span class="math display">\[
 \begin{aligned}
 \pi(x)_u = \frac{e^{\lambda_u \cdot x}}{\sum_{v=1}^k e^{\lambda_v \cdot x}}
 \end{aligned}
-\tag{3.12}</script><p><strong>这不正是多类问题上的逻辑斯谛回归公式 <script type="math/tex">(1.7)</script> 或 <script type="math/tex">(3.1)</script> 吗？</strong></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上，我们可以看出，逻辑斯谛回归是最大熵模型的一个特例，只需将逻辑斯谛回归模型所隐含的模型约束条件引入到最大熵模型中即可导出逻辑斯谛回归模型。<strong>最大熵原理是概率模型学习的一种通用准则，可有效避免模型的过拟合</strong>。逻辑斯谛回归和最大熵模型都是对数线性模型。</p>
+\tag{3.12}
+\]</span> <strong>这不正是多类问题上的逻辑斯谛回归公式 <span class="math inline">\((1.7)\)</span> 或 <span class="math inline">\((3.1)\)</span> 吗？</strong></p>
+<h2 id="总结">总结</h2>
+<p>以上，我们可以看出，逻辑斯谛回归是最大熵模型的一个特例，只需将逻辑斯谛回归模型所隐含的模型约束条件引入到最大熵模型中即可导出逻辑斯谛回归模型。<strong>最大熵原理是概率模型学习的一种通用准则，可有效避免模型的过拟合</strong>。逻辑斯谛回归和最大熵模型都是对数线性模型。</p>
 <p>若发现文中有错误，望指出，共同学习:coffee:。</p>
-<h2 id="参考源"><a href="#参考源" class="headerlink" title="参考源"></a>参考源</h2><ol>
-<li><a href="http://www.win-vector.com/dfiles/LogisticRegressionMaxEnt.pdf" target="_blank" rel="noopener">The  equivalence of logistic regression and maximum entropy models</a></li>
+<h2 id="参考源">参考源</h2>
+<ol type="1">
+<li><a href="http://www.win-vector.com/dfiles/LogisticRegressionMaxEnt.pdf" target="_blank" rel="noopener">The equivalence of logistic regression and maximum entropy models</a></li>
 <li>李航《统计学习方法》</li>
 <li><a href="https://repository.upenn.edu/cgi/viewcontent.cgi?article=1083&amp;context=ircs_reports" target="_blank" rel="noopener">A Simple Introduction to Maximum Entropy Models for Natural Language Processing</a></li>
 </ol>
@@ -420,7 +429,24 @@ e^{\beta} &= 1/ \sum_{u=1}^k e^{\lambda_u x(i)-1}
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
